@@ -1,0 +1,4 @@
+LeviRmisc
+=========
+
+Miscellaneous handy functions
