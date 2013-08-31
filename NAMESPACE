@@ -1,0 +1,9 @@
+## Export all names
+exportPattern(".")
+
+importFrom(multtest, mt.rawp2adjp)
+importFrom(cvTools, cvFolds, cvFit)
+importFrom(XML, free, xmlValue, xmlDoc, xmlParse, xpathSApply, getNodeSet)
+importFrom(genomes, xvalue, esearch, efetch)
+importFrom(gtools, invalid)
+importFrom(GEOquery, getGEO)

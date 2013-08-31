@@ -1,0 +1,9 @@
+Package: LeviRmisc
+Maintainer: Levi Waldron <lwaldron@hsph.harvard.edu>
+Author: Levi Waldron and Markus Riester
+Version: 0.16.1
+License: GPL (>=2.0)
+Title: Levi's miscellaneous handy R functions
+Description: Just a collection of small but handy functions.
+Imports: multtest, cvTools, Biobase, genomes, XML, gtools, GEOquery
+Suggests: GEOmetadb, jetset, annotate, affy, gplots
