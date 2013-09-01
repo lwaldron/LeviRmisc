@@ -60,6 +60,8 @@ geoPmidLookup <- structure(function ### Look up metadata for any combination of 
     lookup <- geoLookup(id, con=con)
     if(any(grepl("character|logical", class(lookup))))
         lookup <- data.frame(matrix(lookup, nrow=1, dimnames=list("id", names(lookup))), stringsAsFactors=FALSE)
+    if(is(lookup, "matrix"))
+        lookup <- data.frame(lookup, stringsAsFactors=FALSE)
     is.pmid <- grepl("^(PMID)?[0-9]+$", id)
     if(any(is.pmid))
         lookup[is.pmid, "pubMedIds"] <- sub("pmid", "", id[is.pmid], ignore.case=TRUE)
