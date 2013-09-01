@@ -3,8 +3,8 @@
 cd ..
 R --vanilla <<RSCRIPT
 library(inlinedocs);
-package.skeleton.dx("Rmisc", excludePattern="^heatmap")
+package.skeleton.dx("LeviRmisc", excludePattern="^heatmap")
 RSCRIPT
 
-R CMD build Rmisc
+R CMD build LeviRmisc
 

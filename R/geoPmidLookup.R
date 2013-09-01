@@ -3,7 +3,7 @@ geoPmidLookup <- structure(function ### Look up metadata for any combination of 
 ### from pubmed if the PMID can be found from GEO.
 ### Function by Levi Waldron.
 (id,
-### A character string of one or more GSE or GDS identifiers and/or
+### A character string of one or more GSE identifiers and/or
 ### pubmed IDs.  Pubmed IDs may or may not be preceded by "PMID".
 ### Optionally, GEO series identifiers can have a platform specified
 ### by appending it to the series identifier, separated by a hyphen,
@@ -56,8 +56,10 @@ geoPmidLookup <- structure(function ### Look up metadata for any combination of 
             x <- x[, -10]
         x
     }    
-    ##id = GSE, GDS, or PMID identifiers
+    ##id = GSE or PMID identifiers
     lookup <- geoLookup(id, con=con)
+    if(any(grepl("character|logical", class(lookup))))
+        lookup <- data.frame(matrix(lookup, nrow=1, dimnames=list("id", names(lookup))), stringsAsFactors=FALSE)
     is.pmid <- grepl("^(PMID)?[0-9]+$", id)
     if(any(is.pmid))
         lookup[is.pmid, "pubMedIds"] <- sub("pmid", "", id[is.pmid], ignore.case=TRUE)
@@ -66,7 +68,13 @@ geoPmidLookup <- structure(function ### Look up metadata for any combination of 
         lookup <- cbind(lookup, pmid.dat[match(lookup[, "pubMedIds"], pmid.dat$pmid), ])
         lookup <- lookup[, !grepl("pmid", colnames(lookup))]
     }
-    return(lookup)
+    if(is(lookup, "data.frame") && nrow(lookup) == 1){
+        output <- t(lookup)[, 1]
+        names(output) <- colnames(lookup)
+    }else{
+        output <- lookup
+    }
+    return(output)
 ### A character vector or dataframe of platform, series, and publication
 ### information retrieved through GEOmetadb and Pubmed.  If multiple IDs are
 ### provided, the dataframe will have one row per ID.

@@ -6,13 +6,13 @@
 \description{Just a collection of small but handy functions.}
 \details{
 \tabular{ll}{Package: \tab LeviRmisc\cr
-Maintainer: \tab Levi Waldron <lwaldron@hsph.harvard.edu>\cr
+Maintainer: \tab Levi Waldron <levi.waldron@hunter.cuny.edu>\cr
 Author: \tab Levi Waldron and Markus Riester\cr
-Version: \tab 0.16.1\cr
+Version: \tab 0.16.2\cr
 License: \tab GPL (>=2.0)\cr
 Title: \tab Levi's miscellaneous handy R functions\cr
 Imports: \tab multtest, cvTools, Biobase, genomes, XML, gtools, GEOquery\cr
-Suggests: \tab GEOmetadb, jetset, annotate, affy, gplots\cr}
+Suggests: \tab jetset, annotate, affy, gplots, GEOmetadb\cr}
 }
 \author{Levi Waldron and Markus Riester}
 

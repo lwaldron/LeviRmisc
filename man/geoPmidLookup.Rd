@@ -6,7 +6,7 @@ from pubmed if the PMID can be found from GEO.
 Function by Levi Waldron.}
 \usage{geoPmidLookup(id, con = NULL)}
 \arguments{
-  \item{id}{A character string of one or more GSE or GDS identifiers and/or
+  \item{id}{A character string of one or more GSE identifiers and/or
 pubmed IDs.  Pubmed IDs may or may not be preceded by "PMID".
 Optionally, GEO series identifiers can have a platform specified
 by appending it to the series identifier, separated by a hyphen,
