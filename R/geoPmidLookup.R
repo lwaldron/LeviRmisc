@@ -8,6 +8,9 @@ geoPmidLookup <- structure(function ### Look up metadata for any combination of 
 ### Optionally, GEO series identifiers can have a platform specified
 ### by appending it to the series identifier, separated by a hyphen,
 ### eg: GSE1722-GPL96.
+iconv.args=list(from="latin1", to="ASCII", sub="?"),
+### Arguments to the base::iconv() function, for optionally converting
+### text to ASCII.  If NULL, do no conversion.
  con=NULL
 ### Connection to a GEOmetadb SQLite database.  Will be created if not provided.
  ){
@@ -69,6 +72,13 @@ geoPmidLookup <- structure(function ### Look up metadata for any combination of 
         pmid.dat <- ncbiPubmed(na.omit(lookup[, "pubMedIds"]))
         lookup <- cbind(lookup, pmid.dat[match(lookup[, "pubMedIds"], pmid.dat$pmid), ])
         lookup <- lookup[, !grepl("pmid", colnames(lookup))]
+    }
+    ##Do ASCII conversion
+    if(!is.null(iconv.args)){
+        for (i in which(sapply(lookup, is.character))){
+            iconv.args$x <- lookup[, i]
+            lookup[, i] <- do.call(iconv, iconv.args)
+        }
     }
     if(is(lookup, "data.frame") && nrow(lookup) == 1){
         output <- t(lookup)[, 1]

@@ -4,13 +4,16 @@
 \description{If GEO series IDs are provided, the function will also add data
 from pubmed if the PMID can be found from GEO.
 Function by Levi Waldron.}
-\usage{geoPmidLookup(id, con = NULL)}
+\usage{geoPmidLookup(id, iconv.args = list(from = "latin1", to = "ASCII", 
+    sub = "?"), con = NULL)}
 \arguments{
   \item{id}{A character string of one or more GSE identifiers and/or
 pubmed IDs.  Pubmed IDs may or may not be preceded by "PMID".
 Optionally, GEO series identifiers can have a platform specified
 by appending it to the series identifier, separated by a hyphen,
 eg: GSE1722-GPL96.}
+  \item{iconv.args}{Arguments to the base::iconv() function, for optionally converting
+text to ASCII.  If NULL, do no conversion.}
   \item{con}{Connection to a GEOmetadb SQLite database.  Will be created if not provided.}
 }
 
