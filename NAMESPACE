@@ -7,3 +7,5 @@ importFrom(XML, free, xmlValue, xmlDoc, xmlParse, xpathSApply, getNodeSet)
 importFrom(genomes, xvalue, esearch, efetch)
 importFrom(gtools, invalid)
 importFrom(GEOquery, getGEO)
+importFrom(Biobase, phenoData, varLabels, varMetadata, pData)
+
