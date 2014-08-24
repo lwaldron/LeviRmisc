@@ -6,4 +6,4 @@ License: GPL (>=2.0)
 Title: Levi's miscellaneous handy R functions
 Description: Just a collection of small but handy functions.
 Imports: multtest, cvTools, Biobase, genomes, XML, gtools, GEOquery
-Suggests: jetset, annotate, affy, gplots, GEOmetadb
+Suggests: jetset, annotate, gplots, GEOmetadb
