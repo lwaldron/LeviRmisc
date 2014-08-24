@@ -1,7 +1,7 @@
 Package: LeviRmisc
 Maintainer: Levi Waldron <levi.waldron@hunter.cuny.edu>
 Author: Levi Waldron and Markus Riester
-Version: 0.16.5
+Version: 0.16.6
 License: GPL (>=2.0)
 Title: Levi's miscellaneous handy R functions
 Description: Just a collection of small but handy functions.
