@@ -51,7 +51,7 @@ geoLookup <- structure(function ### Look up basic experiment and platform inform
     ## GSE lookup
     gse.query <- dbGetQuery(con, paste("select * from gse where gse='", gse.id, "'", sep="") )
     if(nrow(gse.query) == 0)
-        return(lookup)
+        return(do.call(c, lookup))
     ## Platform lookup.  Sometimes there is more than one platform.
     gpl.ids.split <- strsplit(gpl.id, split="\\|")[[1]]
     gpl.query <- dbGetQuery(con, paste("select * from gpl where gpl='", paste(gpl.ids.split, collapse="' OR gpl='"), "'", sep=""))
