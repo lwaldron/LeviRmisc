@@ -1,4 +1,4 @@
 LeviRmisc
 =========
 
-Miscellaneous handy functions
+Miscellaneous handy functions. 
