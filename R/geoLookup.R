@@ -24,7 +24,6 @@ geoLookup <- structure(function ### Look up basic experiment and platform inform
         return(do.call(c, lookup))
     ## con = GEOmetadb connection.  If NULL, it will be set up.
     ## Note that GEOmetadb does not export dbGetQuery, so the package must be loaded explicitly.
-    library(GEOmetadb)
     ##Open connection to GEOmetadb if not provided:
     if(is.null(con)){
         if(file.exists("GEOmetadb.sqlite")){
@@ -32,10 +31,10 @@ geoLookup <- structure(function ### Look up basic experiment and platform inform
         }else{
             sqlfile = getSQLiteFile(destdir=".")
         }
-        con = dbConnect("SQLite",sqlfile)
+        con = dbConnect(SQLite(), sqlfile)
     }
     ##Deal with the case of GSEnnnn-GPLnnn
-    if(grepl("-", id)){  
+    if(grepl("-", id)){
         ##Split if the id has form GSEnnnn-GPLnnn
         id.split <- strsplit(id, split="-")[[1]]
         gse.id <- id.split[1]
