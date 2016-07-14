@@ -1,10 +1,15 @@
 ## Export all names
 exportPattern(".")
 
+export(ComBatWrapper,	geoPmidLookup, makeTXT, writeGMT,
+   adjP, getFolds, multiHist, writePCL,
+   cladeFilter, expandProbesets,	getGEO2, readGMT,
+   collapseProbesets,	fold, 	heatmap.3, readPCL,
+   cvPredictions, geoLookup, makeCLS, shortenCladeName)
+
 importFrom(multtest, mt.rawp2adjp)
 importFrom(cvTools, cvFolds, cvFit)
 importFrom(XML, free, xmlValue, xmlDoc, xmlParse, xpathSApply, getNodeSet)
-importFrom(genomes, xvalue, esearch, efetch)
 importFrom(gtools, invalid)
 importFrom(Biobase, phenoData, varLabels, varMetadata, pData)
 importFrom(GEOquery, getGEO)
