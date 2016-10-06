@@ -25,10 +25,11 @@ makeCLS <- function #function to create a valid cls file
       line1 <- "#numeric"
       line2 <- paste("#",varname,sep="")
     }else{
-      line1 <- c(length(vec),length(unique(vec)),1)
-      line2 <- c("#", unique(vec))
+      if(!is(vec, "factor")) stop("vec should be numeric or factor")
+      line1 <- c(length(vec), length(levels(vec)), 1)
+      line2 <- c("#", levels(vec))
     }
-  line3 <- vec
+  line3 <- as.integer(vec) - 1
   write.table(t(line1),file=fname,sep=" ",col.names=FALSE,row.names=FALSE,quote=FALSE)
   write.table(t(line2),file=fname,sep=" ",col.names=FALSE,row.names=FALSE,quote=FALSE,append=TRUE)
   write.table(t(line3),file=fname,sep=" ",col.names=FALSE,row.names=FALSE,quote=FALSE,append=TRUE)
